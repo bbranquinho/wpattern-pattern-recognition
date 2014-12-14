@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{906CEB87-5919-4177-97D3-9E103CDC6CA8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WPattern.Pattern.Recognition.Core</RootNamespace>
+    <AssemblyName>PatternRecognition.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Algorithms\Distance.cs" />
+    <Compile Include="Algorithms\KnnPrototype.cs" />
+    <Compile Include="Algorithms\Normalization.cs" />
+    <Compile Include="Algorithms\Utils\ClassifierFactory.cs" />
+    <Compile Include="Algorithms\Enums\ClassifierType.cs" />
+    <Compile Include="Algorithms\Enums\CrossValidationType.cs" />
+    <Compile Include="Algorithms\Enums\NormalizationType.cs" />
+    <Compile Include="Algorithms\Interfaces\IClassifier.cs" />
+    <Compile Include="Algorithms\Knn.cs" />
+    <Compile Include="Beans\AggregatedRecordBean.cs" />
+    <Compile Include="Beans\ClassifierParametersBean.cs" />
+    <Compile Include="Algorithms\Prototype.cs" />
+    <Compile Include="Algorithms\Utils\ClassifierUtils.cs" />
+    <Compile Include="Beans\ClassifierResultBean.cs" />
+    <Compile Include="Beans\ConfusionMatrixBean.cs" />
+    <Compile Include="Beans\GeneticAlgorithmParametersBean.cs" />
+    <Compile Include="Beans\RecordDistanceBean.cs" />
+    <Compile Include="Beans\RecordBean.cs" />
+    <Compile Include="Beans\SampleBean.cs" />
+    <Compile Include="Beans\StructureBean.cs" />
+    <Compile Include="GeneticAlgorithm\Crossover.cs" />
+    <Compile Include="GeneticAlgorithm\Enums\CrossoverType.cs" />
+    <Compile Include="GeneticAlgorithm\Enums\MutationType.cs" />
+    <Compile Include="GeneticAlgorithm\Enums\NaturalSelectionType.cs" />
+    <Compile Include="GeneticAlgorithm\GeneticAlgorithm.cs" />
+    <Compile Include="GeneticAlgorithm\IndividualBean.cs" />
+    <Compile Include="GeneticAlgorithm\Interfaces\ICrossover.cs" />
+    <Compile Include="GeneticAlgorithm\Interfaces\IGeneticAlgorithm.cs" />
+    <Compile Include="GeneticAlgorithm\Interfaces\IMutation.cs" />
+    <Compile Include="GeneticAlgorithm\Interfaces\INaturalSelection.cs" />
+    <Compile Include="GeneticAlgorithm\Mutation.cs" />
+    <Compile Include="GeneticAlgorithm\NaturalSelection.cs" />
+    <Compile Include="Interfaces\ILoader.cs" />
+    <Compile Include="Loader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

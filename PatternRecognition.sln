@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternRecognition", "PatternRecognition\PatternRecognition.csproj", "{00D14B31-4371-4B79-BAD4-75ED2726F408}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternRecognition.Core", "PatternRecognition.Core\PatternRecognition.Core.csproj", "{906CEB87-5919-4177-97D3-9E103CDC6CA8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B34BC413-D088-4264-BFDC-603C149D47BB}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\breast_cancer_01_samples.txt = Solution Items\breast_cancer_01_samples.txt
+		Solution Items\breast_cancer_02_samples.txt = Solution Items\breast_cancer_02_samples.txt
+		Solution Items\breast_cancer_03_samples.txt = Solution Items\breast_cancer_03_samples.txt
+		Solution Items\dermatologic_samples.txt = Solution Items\dermatologic_samples.txt
+		Solution Items\gender_samples.txt = Solution Items\gender_samples.txt
+		Solution Items\iris_samples.txt = Solution Items\iris_samples.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00D14B31-4371-4B79-BAD4-75ED2726F408}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00D14B31-4371-4B79-BAD4-75ED2726F408}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00D14B31-4371-4B79-BAD4-75ED2726F408}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00D14B31-4371-4B79-BAD4-75ED2726F408}.Release|Any CPU.Build.0 = Release|Any CPU
+		{906CEB87-5919-4177-97D3-9E103CDC6CA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{906CEB87-5919-4177-97D3-9E103CDC6CA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{906CEB87-5919-4177-97D3-9E103CDC6CA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{906CEB87-5919-4177-97D3-9E103CDC6CA8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

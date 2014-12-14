@@ -1,0 +1,94 @@
+﻿<Window x:Class="WPattern.Pattern.Recognition.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WPattern - Pattern Recognition" Height="476" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="PatternRecognition.ico">
+    <Grid Loaded="Grid_Loaded_1">
+        <TabControl x:Name="tabControlMain" HorizontalAlignment="Left" Height="438" VerticalAlignment="Top" Width="784">
+            <TabItem x:Name="tabLogger" Header="Logger">
+                <Grid Background="#FFE5E5E5">
+                    <Grid HorizontalAlignment="Left" Height="402" Margin="10,35,0,0" VerticalAlignment="Top" Width="758">
+                        <ScrollViewer HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="Auto" VerticalScrollBarVisibility="Auto">
+                            <TextBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" x:Name="txtLogger" HorizontalAlignment="Left" Height="363" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="758" FontFamily="Courier New" AcceptsReturn="True"/>
+                        </ScrollViewer>
+                    </Grid>
+                    <Button x:Name="btnClear" Content="Clear Log" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="161" Click="btnClear_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabPatternRecognition" Header="Pattern Recognition">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="btnStartClassification" Content="Start Classification" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="758" Click="btnStartClassification_Click"/>
+                    <GroupBox Header="Classifiers" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Height="84" Width="325">
+                        <Grid HorizontalAlignment="Left" Height="100" Width="621" VerticalAlignment="Top" Margin="0,0,-12,-12">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="17*"/>
+                                <RowDefinition Height="33*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="K" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.529,0.846" Margin="122,4,0,0" Height="26" Width="17"/>
+                            <TextBox x:Name="txtK" HorizontalAlignment="Right" Height="23" Margin="0,7,440,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" Text="5"/>
+                            <RadioButton GroupName="Classifier" x:Name="grpAlgorithmKnn" Content="Knn" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" IsChecked="True" Height="15" Width="40" Checked="grpAlgorithmKnn_Checked"/>
+                            <RadioButton GroupName="Classifier" x:Name="grpAlgorithmPrototype" Content="Prototype" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Row="1" Height="15" Width="85" Checked="grpAlgorithmPrototype_Checked"/>
+                            <RadioButton GroupName="Classifier" x:Name="grpAlgorithmKnnPrototype" Content="Knn + Prototype" HorizontalAlignment="Left" Margin="122,10,0,0" VerticalAlignment="Top" Grid.Row="1" Height="15" Width="121" Checked="grpAlgorithmKnnPrototype_Checked"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="NormalizationType" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Height="82" Width="325">
+                        <Grid HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="151" Margin="0,0,-2,-12">
+                            <RadioButton x:Name="grpNormalizationNone" GroupName="NormalizationType" Content="None" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" IsChecked="True" Checked="grpNormalizationNone_Checked"/>
+                            <RadioButton x:Name="grpNormalizationZScore" GroupName="NormalizationType" Content="Z-score" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Checked="grpNormalizationZScore_Checked"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Cross Validation" HorizontalAlignment="Left" Margin="340,35,0,0" VerticalAlignment="Top" Height="82" Width="428">
+                        <Grid VerticalAlignment="Top" Height="61" Margin="0,0,0,-12">
+                            <RadioButton x:Name="grpCrossValidationLeaveOneOut" GroupName="CrossValidationType" Content="Leave-one-out" HorizontalAlignment="Left" Height="Auto" Width="Auto" Margin="10,7,0,39" IsChecked="True" Checked="grpCrossValidationLeaveOneOut_Checked"/>
+                        </Grid>
+                    </GroupBox>
+                    <Button x:Name="btnStartGeneticAlgorithm" Content="Start Genetic Algorithm" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" Width="758" Click="btnStartGeneticAlgorithm_Click"/>
+                    <GroupBox Header="Parameters" HorizontalAlignment="Left" Margin="10,246,0,0" VerticalAlignment="Top" Height="97" Width="325">
+                        <Grid HorizontalAlignment="Left" Height="87" VerticalAlignment="Top" Width="325" Margin="0,0,-12,-12">
+                            <Label Content="Population Size" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtPopulationSize" HorizontalAlignment="Left" Height="23" Margin="102,13,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="50"/>
+                            <Label Content="Generations" HorizontalAlignment="Left" Margin="167,13,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtGenerations" HorizontalAlignment="Left" Height="23" Margin="251,14,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="50"/>
+                            <Label Content="Crossover (%)" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtCrossover" HorizontalAlignment="Left" Height="23" Margin="102,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="100"/>
+                            <Label Content="Mutation (%)" HorizontalAlignment="Left" Margin="167,44,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtMutation" HorizontalAlignment="Left" Height="23" Margin="251,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="10"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Crossover" HorizontalAlignment="Left" Margin="340,246,0,0" VerticalAlignment="Top" Height="97" Width="428">
+                        <Grid HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="279">
+                            <RadioButton x:Name="grpCrossoverSimple" GroupName="Crossover" Content="Simple" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top" IsChecked="True" Checked="grpCrossoverSimple_Checked"/>
+                            <RadioButton x:Name="grpCrossoverRoulette" GroupName="Crossover" Content="Roulette" HorizontalAlignment="Left" Margin="133,17,0,0" VerticalAlignment="Top" Checked="grpCrossoverRoulette_Checked"/>
+                            <RadioButton x:Name="grpCrossoverTournament" GroupName="Crossover" Content="Tournament (3)" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Checked="grpCrossoverTournament_Checked"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Mutation" HorizontalAlignment="Left" Height="53" Margin="10,348,0,0" VerticalAlignment="Top" Width="325">
+                        <Grid HorizontalAlignment="Left" Height="39" VerticalAlignment="Top" Width="322" Margin="0,0,-9,-12">
+                            <RadioButton x:Name="grpMutationSwitch" GroupName="Mutation" Content="Switch" HorizontalAlignment="Left" Margin="169,10,0,0" VerticalAlignment="Top" Checked="grpMutationSwitch_Checked"/>
+                            <RadioButton x:Name="grpMutationSimple" GroupName="Mutation" Content="Simple" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" IsChecked="True" Checked="grpMutationSimple_Checked"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Natural Selection" HorizontalAlignment="Left" Margin="340,348,0,0" VerticalAlignment="Top" Height="53" Width="428">
+                        <Grid HorizontalAlignment="Left" Height="39" VerticalAlignment="Top" Width="279" Margin="0,0,0,-12">
+                            <RadioButton x:Name="grpNaturalSelectionBests" GroupName="NaturalSelection" Content="Bests" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" IsChecked="True" Checked="grpNaturalSelectionBests_Checked"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabSamples" Header="Samples">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="sampleRecords" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Height="365" Width="758"/>
+                    <Button x:Name="btnLoadSamples" Content="Load Samples" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="185" Click="btnLoadSamples_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        
+        <Label Content="About" HorizontalAlignment="Left" Margin="606,-2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
+        <TextBlock HorizontalAlignment="Left" Margin="651,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108">
+            <Hyperlink NavigateUri="http://wpattern.com">http://wpattern.com</Hyperlink>
+        </TextBlock>
+        <Image HorizontalAlignment="Left" Height="16" Margin="763,4,0,0" VerticalAlignment="Top" Width="23" Source="PatternRecognition.ico"/>
+    </Grid>
+</Window>
